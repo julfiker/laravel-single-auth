@@ -1,0 +1,28 @@
+{
+    "name": "julfiker/laravel-single-auth",
+    "description": "Laravel Single Login for multiple laravel application",
+    "require": {
+       "php": ">=5.5.9"
+    },
+    "authors": [
+        {
+            "name": "Julfiker",
+            "email": "mail.julfiker@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Julfiker\\SingleAuth\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "minimum-stability": "dev",
+    "scripts": {
+        "post-install-cmd": [
+            "php artisan clear-compiled",
+            "php artisan optimize"
+        ]
+    }
+}
