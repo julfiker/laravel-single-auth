@@ -1,11 +1,19 @@
 <?php
 function externalLoginUrl($externalUrl, $path) {
     $manager = new \Julfiker\SingleAuth\SingleAuthorizeManager();
-    return $externalUrl.route('single.login.redirect',
-            [
-                'token' => $manager->generateToken(),
-                'redirect' =>  $externalUrl."/".$path
-            ],
-        false
-    );
+
+    try {
+        $link = $externalUrl . route('single.login.redirect',
+                [
+                    'token' => $manager->generateToken(),
+                    'redirect' => $externalUrl . "/" . $path
+                ],
+                false
+            );
+    }
+    catch (\Exception $e) {
+       throw new Exception('Single auth package not configured yet!');
+    }
+
+    return $link;
 }
