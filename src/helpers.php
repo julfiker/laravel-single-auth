@@ -6,7 +6,7 @@ function externalLoginUrl($externalUrl, $path) {
         $link = $externalUrl . route('single.login.redirect',
                 [
                     'token' => $manager->generateToken(),
-                    'redirect' => $externalUrl . "/" . $path
+                    'redirect' =>  $path
                 ],
                 false
             );
