@@ -27,7 +27,7 @@ class ExternalAuthorizeController extends Controller
          $user = $authorizeManager->authenticate($id);
 
          if ($user && $user->user_id == $id)
-          return Redirect::away($redirectTo);
+          return Redirect::to($redirectTo);
 
          abort(403);
     }
